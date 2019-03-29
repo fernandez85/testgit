@@ -1,0 +1,46 @@
+Turn: 0 | fh= 5, fl= 100, g= 5(+0), ghz= 10, t= 7
+Turn: 1 | fh= -2, fl= 99, g= 5(+0), ghz= 10, t= 3
+Turn: 2 | fh= -2, fl= 99, g= 3(+1), ghz= 7, t= -1
+Turn: 0 | fh= 5, fl= 100, g= 5(+0), ghz= 10, t= 7
+Turn: 1 | fh= 5, fl= 99, g= 2(+1), ghz= 5, t= 5
+Turn: 2 | fh= 5, fl= 98, g= 1(+0), ghz= 2, t= 5
+Turn: 3 | fh= 2, fl= 97, g= 1(+0), ghz= 2, t= 5
+MARIUSZ 0
+Turn: 0 | fh= 100, fl= 3, g= 0(+0), ghz= 0, t= 8
+Turn: 1 | fh= 92, fl= 2, g= 1(+0), ghz= 10, t= 8
+Turn: 2 | fh= 84, fl= 1, g= 2(+0), ghz= 20, t= 7
+Turn: 3 | fh= 0, fl= 0, g= 3(+0), ghz= 30, t= 5
+Turn: 4 | fh= 0, fl= 0, g= 2(+1), ghz= 25, t= 2
+Turn: 5 | fh= 0, fl= 0, g= 2(+1), ghz= 23, t= -1
+Turn: 0 | fh= 100, fl= 3, g= 0(+0), ghz= 0, t= 8
+Turn: 1 | fh= 92, fl= 2, g= 1(+0), ghz= 10, t= 8
+Turn: 2 | fh= 92, fl= 1, g= 1(+1), ghz= 12, t= 7
+Turn: 3 | fh= 0, fl= 0, g= 1(+1), ghz= 15, t= 6
+Turn: 4 || fh= 0, fl= 0, g= 0(+1), ghz= 9, t= 5
+Turn: 5 || fh= 0, fl= 0, g= 0(+1), ghz= 4, t= 4
+MARIUSZ 0
+Turn: 0 | fh= 100, fl= 1, g= 0(+0), ghz= 0, t= 10
+Turn: 1 | fh= 0, fl= 0, g= 1(+0), ghz= 60, t= 10
+Turn: 2 | fh= 0, fl= 0, g= 0(+1), ghz= 50, t= 9
+Turn: 3 | fh= 0, fl= 0, g= 0(+1), ghz= 41, t= 8
+Turn: 4 | fh= 0, fl= 0, g= 0(+1), ghz= 33, t= 7
+Turn: 5 | fh= 0, fl= 0, g= 0(+1), ghz= 26, t= 6
+Turn: 6 | fh= 0, fl= 0, g= 0(+1), ghz= 20, t= 5
+Turn: 7 | fh= 0, fl= 0, g= 0(+1), ghz= 15, t= 4
+Turn: 8 | fh= 0, fl= 0, g= 0(+1), ghz= 11, t= 3
+Turn: 9 | fh= 0, fl= 0, g= 0(+1), ghz= 8, t= 2
+Turn: 10 | fh= 0, fl= 0, g= 0(+1), ghz= 6, t= 1
+Turn: 11 | fh= 0, fl= 0, g= 0(+1), ghz= 5, t= 0
+Turn: 0 | fh= 100, fl= 1, g= 0(+0), ghz= 0, t= 10
+Turn: 1 | fh= 0, fl= 0, g= 1(+0), ghz= 60, t= 10
+Turn: 2 || fh= 0, fl= 0, g= 0(+1), ghz= 50, t= 9
+Turn: 3 || fh= 0, fl= 0, g= 0(+1), ghz= 41, t= 8
+Turn: 4 || fh= 0, fl= 0, g= 0(+1), ghz= 33, t= 7
+Turn: 5 || fh= 0, fl= 0, g= 0(+1), ghz= 26, t= 6
+Turn: 6 || fh= 0, fl= 0, g= 0(+1), ghz= 20, t= 5
+Turn: 7 || fh= 0, fl= 0, g= 0(+1), ghz= 15, t= 4
+Turn: 8 || fh= 0, fl= 0, g= 0(+1), ghz= 11, t= 3
+Turn: 9 || fh= 0, fl= 0, g= 0(+1), ghz= 8, t= 2
+Turn: 10 || fh= 0, fl= 0, g= 0(+1), ghz= 6, t= 1
+Turn: 11 || fh= 0, fl= 0, g= 0(+1), ghz= 5, t= 0
+PAWEL

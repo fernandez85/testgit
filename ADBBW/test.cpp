@@ -7,81 +7,186 @@
 #include <algorithm>
 using namespace std;
 
-int main() {
-	ios::sync_with_stdio(false);
+#define DEBUG
 
-	string text, pattern, subPat;
-	int n, cnt, cntn, vcnt, k, l, shift, offset;
-	int uPattern;
-	bool b;
-	vector<int> vs[4];
-	vector<int> vcs[4];
+int check_factory_strategy(int fh, int fl, int g, int gh, int t)
+{
+		int turnCnt = 0;
+		int ghz = g * gh;
 
-	cin >> text;
-	cnt = text.length();
-	cntn = 0;
+#ifdef DEBUG
+		cout << "Turn: " << turnCnt << " |";
+		cout << " fh= " << fh << ", fl= " << fl;
+		cout << ", g= " << g << (ghz % gh ? "(+1)" : "(+0)") << ", ghz= " << ghz;
+		cout << ", t= " << t << "\n";
+#endif
 
-	for (int i=0; i<cnt; i++)
-	{
-		l = ((i < cnt - 3) ? 4 : (cnt - i));
-		uPattern = 0;
-		shift = 0;
-		for (int k=0; k<l; k++)
+		//first factory attack
+		while (fh > 0)
 		{
-		 	uPattern |= ((int) text[i+k]) << (shift);
-		 	shift += 8;
+			++turnCnt;
 
-		 	b = false;
-		 	cntn = vs[k].size();
-		 	for (int j=0; j<cntn; j++)
-		 	{
-		 		if (vs[k][j] == uPattern)
-		 		{
-		 			++vcs[k][j];
-		 			b = true;
-		 			break;
-		 		}
-		 	}
-		 	if (!b)
-		 	{
-		 		vs[k].push_back(uPattern);
-		 		vcs[k].push_back(1);
-		 	}
-		}
-	}
-
-	cin >> n;
-	while(n--)
-	{
-	 	cin >> pattern;
-
-		uPattern = 0;
-		l = pattern.length();
-		shift = 0;
-		for (int k=0; k<l; k++)
-		{
-			uPattern |= ((int) pattern[k]) << (shift);
-			shift += 8;
-		}
-
-		b = false;
-		cntn = vs[l-1].size();
-		for (int j=0; j<cntn; j++)
-		{
-			if (vs[l-1][j] == uPattern)
+			//mariusz turn
+			fh -= t;
+			if (fh <= 0)
 			{
-				cout << vcs[l-1][j] << "\n";
-				b = true;
+				ghz += fh;
+				if (ghz <= 0)
+				{
+					//mariusz won
+					return turnCnt;
+				}
+			}
+			//paweł turn
+			t -= ((ghz / gh) + (ghz % gh ? 1 : 0));
+			ghz += gh;
+
+			if (!--fl)
+			{
+				fh = 0;
+			}
+#ifdef DEBUG
+			cout << "Turn: " << turnCnt << " |";
+			cout << " fh= " << fh << ", fl= " << fl;
+			cout << ", g= " << (ghz / gh) << (ghz % gh ? "(+1)" : "(+0)") << ", ghz= " << ghz;
+			cout << ", t= " << t << "\n";
+#endif
+ 
+			//check t
+			if (t <= 0)
+			{
 				break;
 			}
 		}
 
-		if (!b)
+		while (t > 0)
 		{
-			cout << "0\n";
+			++turnCnt;
+
+			//mariusz turn
+			ghz -= t;
+			if (ghz <= 0)
+			{
+				//mariusz won
+				return turnCnt;
+			}
+			//paweł turn
+			t -= ((ghz / gh) + (ghz % gh ? 1 : 0));
+#ifdef DEBUG
+			cout << "Turn: " << turnCnt << " ||";
+			cout << " fh= " << fh << ", fl= " << fl;
+			cout << ", g= " << (ghz / gh) << (ghz % gh ? "(+1)" : "(+0)") << ", ghz= " << ghz;
+			cout << ", t= " << t << "\n";
+#endif
+		}
+
+	//paweł won	
+	return 0;
+}
+
+int check_gauss_strategy(int fh, int fl, int g, int gh, int t)
+{
+		int turnCnt = 0;
+		int ghz = g * gh;
+
+#ifdef DEBUG
+		cout << "Turn: " << turnCnt << " |";
+		cout << " fh= " << fh << ", fl= " << fl;
+		cout << ", g= " << g << (ghz % gh ? "(+1)" : "(+0)") << ", ghz= " << ghz;
+		cout << ", t= " << t << "\n";
+#endif
+
+		//first factory attack
+		while (fh > 0)
+		{
+			++turnCnt;
+
+			//mariusz turn
+			ghz -= t;
+			if (ghz <= 0)
+			{
+				fh += ghz;
+				if (fh <= 0)
+				{
+					//mariusz won
+					return turnCnt;
+				}
+				ghz = 0;
+			}
+			//paweł turn
+			t -= ((ghz / gh) + (ghz % gh ? 1 : 0));
+			ghz += gh;
+
+			if (!--fl)
+			{
+				fh = 0;
+			}
+#ifdef DEBUG
+			cout << "Turn: " << turnCnt << " |";
+			cout << " fh= " << fh << ", fl= " << fl;
+			cout << ", g= " << (ghz / gh) << (ghz % gh ? "(+1)" : "(+0)") << ", ghz= " << ghz;
+			cout << ", t= " << t << "\n";
+#endif
+ 
+			//check t
+			if (t <= 0)
+			{
+				break;
+			}
 		}
 	
-	}
+		while (t > 0)
+		{
+			++turnCnt;
 
+			//mariusz turn
+			ghz -= t;
+			if (ghz <= 0)
+			{
+				//mariusz won
+				return turnCnt;
+			}
+			//paweł turn
+			t -= ((ghz / gh) + (ghz % gh ? 1 : 0));
+
+#ifdef DEBUG
+			cout << "Turn: " << turnCnt << " ||";
+			cout << " fh= " << fh << ", fl= " << fl;
+			cout << ", g= " << (ghz / gh) << (ghz % gh ? "(+1)" : "(+0)") << ", ghz= " << ghz;
+			cout << ", t= " << t << "\n";
+#endif
+		}
+
+	//paweł won	
+	return 0;
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+
+	int fh, fl, g, gh, ghz, t, n;
+	int factory_result, gauss_result;
+
+	cin >> n;
+	while (n--)
+	{
+		cin >> fh >> fl >> gh >> g >> t;
+
+		factory_result = check_factory_strategy(fh, fl, g, gh, t);
+		gauss_result = check_gauss_strategy(fh, fl, g, gh, t);
+		if (factory_result > 0)
+		{
+			cout << "MARIUSZ " << (gauss_result > 0 && factory_result > gauss_result ? gauss_result : factory_result) << "\n";
+		}
+		else if (gauss_result > 0)
+		{
+			cout << "MARIUSZ " << (factory_result > 0 && factory_result < gauss_result ? factory_result : gauss_result) << "\n";
+		}
+		else
+		{
+			cout << "PAWEL\n";
+		}
+	}
+	
 	return 0;
 }
